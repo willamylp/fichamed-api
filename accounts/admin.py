@@ -9,7 +9,7 @@ class UserAdmin(admin.ModelAdmin):
     search_fields = ['full_name', 'username', 'email']
     list_filter = ['is_active', 'is_staff', 'is_superuser', 'created_at', 'updated_at']
     ordering = ['full_name', 'username', 'is_active', 'is_staff', 'is_superuser', 'created_at', 'updated_at']
-    actions = ['activate_users', 'deactivate_users']    
+    actions = ['activate_users', 'deactivate_users']
 
     def activate_users(self, request, queryset):
         queryset.update(is_active=True)
