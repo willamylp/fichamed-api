@@ -7,16 +7,32 @@ class User(AbstractUser):
     last_name = None
     date_joined = None
 
-    full_name = models.CharField(verbose_name="Nome Completo", max_length=255)
-    username = models.CharField(verbose_name="Nome de Usuário", max_length=255, unique=True)
+    username = models.CharField(
+        verbose_name="Nome de Usuário",
+        max_length=255,
+        unique=True,
+    )
     email = models.EmailField(verbose_name="E-mail", max_length=255)
+    full_name = models.CharField(verbose_name="Nome Completo", max_length=255)
 
     created_at = models.DateTimeField(verbose_name="Criado em", auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name="Atualizado em", auto_now=True)
 
-    is_active = models.BooleanField(verbose_name="Ativo", default=True)
-    is_staff = models.BooleanField(verbose_name="Admin", default=False)
-    is_superuser = models.BooleanField(verbose_name="Superusuário", default=False)
+    is_active = models.BooleanField(
+        verbose_name="Ativo",
+        default=True,
+        help_text="Desmarque essa opção para desativar o usuário e impedir o login."
+    )
+    is_staff = models.BooleanField(
+        verbose_name="Admin",
+        default=False,
+        help_text="Marque essa opção para conceder acesso a área administrativa."
+    )
+    is_superuser = models.BooleanField(
+        verbose_name="Superusuário",
+        default=False,
+        help_text="Marque essa opção para conceder todos os privilégios."
+    )
 
     REQUIRED_FIELDS = ['email', 'full_name']
     USERNAME_FIELD = 'username'
