@@ -20,24 +20,6 @@ class AttendanceSheetSerializer(serializers.ModelSerializer):
         }
 
 
-class AttendanceSheetDetailSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = AttendanceSheet
-        fields = "__all__"
-        extra_kwargs = {
-            "filled_by": {
-                "read_only": True
-            },
-            "created_at": {
-                "read_only": True
-            },
-            "updated_at": {
-                "read_only": True
-            },
-        }
-
-
 class AttendanceSheetPanelSerializer(serializers.ModelSerializer):
 
     class Meta:

@@ -5,7 +5,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from app.permissions import GlobalDefaultPermission
 from medical_history.models import MedicalCareHistory
 from .models import AttendanceSheet
-from .serializers import AttendanceSheetSerializer, AttendanceSheetDetailSerializer, AttendanceSheetPanelSerializer
+from .serializers import AttendanceSheetSerializer, AttendanceSheetPanelSerializer
 
 
 class AttendanceSheetListCreateView(generics.ListCreateAPIView):
@@ -33,7 +33,7 @@ class AttendanceSheetListCreateView(generics.ListCreateAPIView):
 class AttendanceSheetRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = AttendanceSheet.objects.all()
-    serializer_class = AttendanceSheetDetailSerializer
+    serializer_class = AttendanceSheetSerializer
 
     def perform_update(self, serializer):
         serializer.save(filled_by=self.request.user)
