@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'accounts',
     'authentication',
     'attendance_sheet',
-    'patients',
+    'medical_history',
 ]
 
 MIDDLEWARE = [

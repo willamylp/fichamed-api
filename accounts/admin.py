@@ -4,32 +4,32 @@ from .models import User
 
 
 class CustomUserAdmin(UserAdmin):
-    list_display = ['id', 'full_name', 'username', 'email', 'is_active', 'is_staff', 'is_superuser', 'created_at', 'updated_at']
-    list_display_links = ['id', 'full_name', 'username', 'email']
-    list_filter = ['is_active', 'is_staff', 'is_superuser', 'created_at', 'updated_at']
-    search_fields = ['full_name', 'username', 'email']
-    ordering = ['full_name', 'username', 'is_active', 'is_staff', 'is_superuser', 'created_at', 'updated_at']
-    actions = ['activate_users', 'deactivate_users']
+    list_display = ["id", "full_name", "username", "email", "is_active", "is_staff", "is_superuser", "created_at", "updated_at"]
+    list_display_links = ["id", "full_name", "username", "email"]
+    list_filter = ["is_active", "is_staff", "is_superuser", "created_at", "updated_at"]
+    search_fields = ["full_name", "username", "email"]
+    ordering = ["full_name", "username", "is_active", "is_staff", "is_superuser", "created_at", "updated_at"]
+    actions = ["activate_users", "deactivate_users"]
     fieldsets = (
-        ('Informações de Acesso', {
-            'fields': (
-                'username',
-                'password'
+        ("Informações de Acesso", {
+            "fields": (
+                "username",
+                "password"
             )
         }),
-        ('Informações Pessoais', {
-            'fields': (
-                'full_name',
-                'email',
+        ("Informações Pessoais", {
+            "fields": (
+                "full_name",
+                "email",
             )
         }),
-        ('Permissões', {
-            'fields': (
-                'groups',
-                'user_permissions',
-                'is_active',
-                'is_staff',
-                'is_superuser',
+        ("Permissões", {
+            "fields": (
+                "groups",
+                "user_permissions",
+                "is_active",
+                "is_staff",
+                "is_superuser",
             )
         }),
     )
