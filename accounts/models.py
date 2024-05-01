@@ -31,7 +31,7 @@ class User(AbstractUser):
     is_superuser = models.BooleanField(
         verbose_name="Superusuário",
         default=False,
-        help_text="Marque essa opção para conceder todos os privilégios."
+        help_text="Marque essa opção para conceder todos os privilégios, sem a necessidade de permissões."
     )
 
     REQUIRED_FIELDS = ['email', 'full_name']

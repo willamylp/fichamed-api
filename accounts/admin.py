@@ -1,15 +1,38 @@
 from django.contrib import admin
 from accounts.models import User
+from django.contrib.auth.admin import UserAdmin
 
 
-@admin.register(User)
-class UserAdmin(admin.ModelAdmin):
+class CustomUserAdmin(UserAdmin):
     list_display = ['id', 'full_name', 'username', 'email', 'is_active', 'is_staff', 'is_superuser', 'created_at', 'updated_at']
     list_display_links = ['id', 'full_name', 'username', 'email']
     list_filter = ['is_active', 'is_staff', 'is_superuser', 'created_at', 'updated_at']
     search_fields = ['full_name', 'username', 'email']
     ordering = ['full_name', 'username', 'is_active', 'is_staff', 'is_superuser', 'created_at', 'updated_at']
     actions = ['activate_users', 'deactivate_users']
+    fieldsets = (
+        ('Informações de Acesso', {
+            'fields': (
+                'username',
+                'password'
+            )
+        }),
+        ('Informações Pessoais', {
+            'fields': (
+                'full_name',
+                'email',
+            )
+        }),
+        ('Permissões', {
+            'fields': (
+                'groups',
+                'user_permissions',
+                'is_active',
+                'is_staff',
+                'is_superuser',
+            )
+        }),
+    )
 
     def activate_users(self, request, queryset):
         queryset.update(is_active=True)
@@ -20,3 +43,5 @@ class UserAdmin(admin.ModelAdmin):
         queryset.update(is_active=False)
 
     deactivate_users.short_description = "Desativar Usuários"
+
+admin.site.register(User, CustomUserAdmin)
