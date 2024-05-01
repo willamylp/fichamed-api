@@ -2,15 +2,16 @@ from django.db import models
 from accounts.models import User
 
 
-class AttendanceSheet(models.Model):
+class Classification(models.TextChoices):
+    RED = "Red", "Vermelho"
+    ORANGE = "Orange", "Laranja"
+    YELLOW = "Yellow", "Amarelo"
+    GREEN = "Green", "Verde"
+    BLUE = "Blue", "Azul"
+    IGNORED = "Ignored", "Ignorado"
 
-    class Classification(models.TextChoices):
-        RED = "Red", "Vermelho"
-        ORANGE = "Orange", "Laranja"
-        YELLOW = "Yellow", "Amarelo"
-        GREEN = "Green", "Verde"
-        BLUE = "Blue", "Azul"
-        IGNORED = "Ignored", "Ignorado"
+
+class AttendanceSheet(models.Model):
 
     filled_by = models.ForeignKey(
         User,
