@@ -29,10 +29,7 @@ class MedicalCareHistoryListCreateView(generics.ListCreateAPIView):
         serializer.save(doctor_attended=self.request.user)
 
 
-class MedicalCareHistoryRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+class MedicalCareHistoryRetrieveDestroyView(generics.RetrieveDestroyAPIView):
     permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = MedicalCareHistory.objects.all()
     serializer_class = MedicalCareHistoryDetailSerializer
-
-    def perform_update(self, serializer):
-        serializer.save(doctor_attended=self.request.user)
