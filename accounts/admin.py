@@ -1,6 +1,6 @@
 from django.contrib import admin
-from accounts.models import User
 from django.contrib.auth.admin import UserAdmin
+from .models import User
 
 
 class CustomUserAdmin(UserAdmin):
@@ -43,5 +43,6 @@ class CustomUserAdmin(UserAdmin):
         queryset.update(is_active=False)
 
     deactivate_users.short_description = "Desativar Usuários"
+
 
 admin.site.register(User, CustomUserAdmin)

@@ -1,7 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
-from rest_framework import status
 
 
 class APIRootView(APIView):
@@ -15,5 +14,9 @@ class APIRootView(APIView):
             'Accounts': {
                 'users_list_create': reverse('users_list_create', request=request, format=format),
                 'user_datail_view/<int:pk>': reverse('user_datail_view', kwargs={'pk': 1}, request=request, format=format),
+            },
+            'Patient': {
+                'patient_list_create': reverse('patient_list_create', request=request, format=format),
+                'patient_datail_view/<int:pk>': reverse('patient_datail_view', kwargs={'pk': 1}, request=request, format=format),
             },
         })
