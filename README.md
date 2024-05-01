@@ -79,7 +79,7 @@ The step-by-step below assumes a PostgreSQL database running in a Docker contain
 ```
 ##
 
-> * [PT-BR] Renomei o arquivo **.env.example** para **.env** e ajuste os valores das variáveis de ambiente, se necessário.
+> * [PT-BR] Renomeie o arquivo **.env.example** para **.env** e ajuste os valores das variáveis de ambiente, se necessário.
 > * [EN-US] Rename the file **.env.example** to **.env** and adjust the values of the environment variables, if necessary.
 
 ##
