@@ -22,4 +22,3 @@ class MedicalCareHistoryAdmin(admin.ModelAdmin):
             ),
         }),
     )
-    

@@ -2,17 +2,16 @@ from django.db import models
 from accounts.models import User
 
 
-CLASSIFICATION_CHOICES = [
-    ("Red", "Vermelho"),
-    ("Orange", "Laranja"),
-    ("Yellow", "Amarelo"),
-    ("Green", "Verde"),
-    ("Blue", "Azul"),
-    ("Ignored", "Ignorado")
-]
-
-
 class AttendanceSheet(models.Model):
+
+    class Classification(models.TextChoices):
+        RED = "Red", "Vermelho"
+        ORANGE = "Orange", "Laranja"
+        YELLOW = "Yellow", "Amarelo"
+        GREEN = "Green", "Verde"
+        BLUE = "Blue", "Azul"
+        IGNORED = "Ignored", "Ignorado"
+
     filled_by = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -32,7 +31,7 @@ class AttendanceSheet(models.Model):
     classification = models.CharField(
         verbose_name="Classificação",
         max_length=10,
-        choices=CLASSIFICATION_CHOICES
+        choices=Classification.choices,
     )
 
     created_at = models.DateTimeField(verbose_name="Criado em", auto_now_add=True)
