@@ -16,11 +16,11 @@ class APIRootView(APIView):
                 'users_list_create': reverse('users_list_create', request=request, format=format),
                 'user_datail_view/<int:pk>': reverse('user_datail_view', kwargs={'pk': 1}, request=request, format=format),
             },
-            'Attendance Sheet': {
+            'AttendanceSheet': {
                 'attendance_sheet_list_create': reverse('attendance_sheet_list_create', request=request, format=format),
                 'attendance_sheet_datail_view/<int:pk>': reverse('attendance_sheet_datail_view', kwargs={'pk': 1}, request=request, format=format),
             },
-            'Medical Care History': {
+            'MedicalCareHistory': {
                 'medical_history_list_create': reverse('medical_history_list_create', request=request, format=format),
                 'medical_history_datail_view/<int:pk>': reverse('medical_history_datail_view', kwargs={'pk': 1}, request=request, format=format),
             },

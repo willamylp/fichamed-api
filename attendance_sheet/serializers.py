@@ -6,4 +6,10 @@ class AttendanceSheetSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AttendanceSheet
-        fields = '__all__'
+        fields = [
+            "card_number",
+            "patient_name",
+            "filled_by",
+            "classification",
+            "clinical_history"
+        ]

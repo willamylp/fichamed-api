@@ -6,4 +6,4 @@ class MedicalCareHistorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MedicalCareHistory
-        fields = '__all__'
+        fields = ["attendance_sheet", "doctor_attended",]

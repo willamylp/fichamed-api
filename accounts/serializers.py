@@ -6,4 +6,9 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = '__all__'
+        fields = [
+            "username", "password",
+            "full_name", "email",
+            "groups", "user_permissions",
+            "is_active", "is_staff", "is_superuser"
+        ]
