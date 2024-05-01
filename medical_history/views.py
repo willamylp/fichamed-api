@@ -26,7 +26,6 @@ class MedicalCareHistoryListCreateView(generics.ListCreateAPIView):
     ordering = ["id"]
 
 
-
 class MedicalCareHistoryRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = MedicalCareHistory.objects.all()

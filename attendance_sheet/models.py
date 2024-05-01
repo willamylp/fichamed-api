@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator
 from accounts.models import User
 
 
@@ -20,7 +21,12 @@ class AttendanceSheet(models.Model):
         verbose_name="Preenchido por"
     )
 
-    card_number = models.IntegerField(verbose_name="Número da Ficha")
+    card_number = models.IntegerField(
+        verbose_name="Número da Ficha",
+        validators=[
+            MinValueValidator(1, "O número da ficha deve ser maior que 0.")
+        ]
+    )
     patient_name = models.CharField(verbose_name="Nome do Paciente", max_length=255)
 
     clinical_history = models.TextField(

@@ -22,6 +22,5 @@ class UserSerializer(serializers.ModelSerializer):
             },
             "updated_at": {
                 "read_only": True
-            }
+            },
         }
-
