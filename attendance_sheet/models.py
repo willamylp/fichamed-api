@@ -47,7 +47,7 @@ class AttendanceSheet(models.Model):
     class Meta:
         verbose_name = "Ficha de Atendimento"
         verbose_name_plural = "Fichas de Atendimento"
-        ordering = ["-created_at"]
+        ordering = ["created_at"]
         db_table = "attendance_sheets"
 
     def __str__(self):

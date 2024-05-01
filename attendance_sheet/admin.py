@@ -12,7 +12,7 @@ class AttendanceSheetAdmin(admin.ModelAdmin):
     paginator = Paginator
     search_fields = ["card_number", "patient", "filled_by", "doctor_attended", "classification", "created_at", "updated_at"]
     date_hierarchy = "created_at"
-    ordering = ["-created_at"]
+    ordering = ["created_at"]
     fieldsets = [
         ("Ficha de Atendimento", {
             "fields": (

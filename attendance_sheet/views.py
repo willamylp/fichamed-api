@@ -4,7 +4,7 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from app.permissions import GlobalDefaultPermission
 from .models import AttendanceSheet
-from .serializers import AttendanceSheetSerializer
+from .serializers import AttendanceSheetSerializer, AttendanceSheetDetailSerializer
 
 
 class AttendanceSheetListCreateView(generics.ListCreateAPIView):
@@ -25,8 +25,14 @@ class AttendanceSheetListCreateView(generics.ListCreateAPIView):
     ]
     ordering = ["id"]
 
+    def perform_create(self, serializer):
+        serializer.save(filled_by=self.request.user)
+
 
 class AttendanceSheetRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = AttendanceSheet.objects.all()
-    serializer_class = AttendanceSheetSerializer
+    serializer_class = AttendanceSheetDetailSerializer
+
+    def perform_update(self, serializer):
+        serializer.save(filled_by=self.request.user)

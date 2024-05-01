@@ -4,7 +4,7 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from app.permissions import GlobalDefaultPermission
 from .models import MedicalCareHistory
-from .serializers import MedicalCareHistorySerializer
+from .serializers import MedicalCareHistorySerializer, MedicalCareHistoryDetailSerializer
 
 
 class MedicalCareHistoryListCreateView(generics.ListCreateAPIView):
@@ -25,8 +25,14 @@ class MedicalCareHistoryListCreateView(generics.ListCreateAPIView):
     ]
     ordering = ["id"]
 
+    def perform_create(self, serializer):
+        serializer.save(doctor_attended=self.request.user)
+
 
 class MedicalCareHistoryRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = MedicalCareHistory.objects.all()
-    serializer_class = MedicalCareHistorySerializer
+    serializer_class = MedicalCareHistoryDetailSerializer
+
+    def perform_update(self, serializer):
+        serializer.save(doctor_attended=self.request.user)

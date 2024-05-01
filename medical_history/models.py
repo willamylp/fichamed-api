@@ -4,11 +4,11 @@ from attendance_sheet.models import AttendanceSheet
 
 
 class MedicalCareHistory(models.Model):
-    attendance_sheet = models.ForeignKey(
+    attendance_sheet = models.OneToOneField(
         AttendanceSheet,
         on_delete=models.CASCADE,
         related_name="medical_care_history",
-        verbose_name="Ficha de Atendimento"
+        verbose_name="Ficha de Atendimento",
     )
 
     doctor_attended = models.ForeignKey(
