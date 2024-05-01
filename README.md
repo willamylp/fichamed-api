@@ -1,5 +1,9 @@
 # FICHAMED API — Django Rest Framework
 
+> [PT-BR] FICHAMED é um software simples e intuitivo para gerenciar formulários de ordem de consulta médica para pacientes.
+
+> [RN-US] FICHAMED is a simple and intuitive software for managing medical appointment order forms for patients.
+
 ### Descrição / Description
 
 > [PT-BR]
