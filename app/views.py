@@ -7,6 +7,9 @@ class APIRootView(APIView):
 
     def get(self, request, format=None):
         return Response({
+            'AdminPage': {
+                'admin': reverse('admin:index', request=request, format=format),
+            },
             'Authentication': {
                 'token_obtain_pair': reverse('token_obtain_pair', request=request, format=format),
                 'token_refresh': reverse('token_refresh', request=request, format=format),
