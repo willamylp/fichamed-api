@@ -14,6 +14,7 @@ class APIRootView(APIView):
                 'token_obtain_pair': reverse('token_obtain_pair', request=request, format=format),
                 'token_refresh': reverse('token_refresh', request=request, format=format),
                 'token_verify': reverse('token_verify', request=request, format=format),
+                'logout': reverse('logout', request=request, format=format),
             },
             'Accounts': {
                 'users_list_create': reverse('users_list_create', request=request, format=format),
