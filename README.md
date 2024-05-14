@@ -58,7 +58,10 @@ The step-by-step below assumes a PostgreSQL database running in a Docker contain
 ##
 
 ### Preparando ambiente Python / Preparing Python Environment
+> NOTA: Requisito: Python v3.7 ou superior. Disponível em: [python.org](https://www.python.org/)
 
+> NOTE: Requirement: Python v3.7 or higher. Available at: [python.org](https://www.python.org/)
+ 
 * [PT-BR] Criando Ambiente Virtual da API
 * [EN-US] Creating Virtual Environment for the API
 ```bash
@@ -79,8 +82,9 @@ The step-by-step below assumes a PostgreSQL database running in a Docker contain
 ```
 ##
 
-> * [PT-BR] Renomeie o arquivo **.env.example** para **.env** e ajuste os valores das variáveis de ambiente, se necessário.
-> * [EN-US] Rename the file **.env.example** to **.env** and adjust the values of the environment variables, if necessary.
+> NOTA: [PT-BR] Renomeie o arquivo **.env.example** para **.env** e ajuste os valores das variáveis de ambiente, se necessário.
+
+> NOTE: [EN-US] Rename the file **.env.example** to **.env** and adjust the values of the environment variables, if necessary.
 
 ##
 
